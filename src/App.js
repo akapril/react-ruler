@@ -9,11 +9,37 @@ const FormItem = Form.Item;
 
 const App = () => {
   const [form] = Form.useForm();
-  const [value, setValue] = useState(57);
+  const [value, setValue] = useState(1);
 
   const handleDragChange = (value) => {
+    console.log(value)
     setValue(value);
   }
+  const data = [{index:0, title:"00:00"},
+                {index:1, title:"01:00"},
+                {index:2, title:"02:00"},
+                {index:3, title:"03:00"},
+                {index:4, title:"04:00"},
+                {index:5, title:"05:00"},
+                {index:6, title:"06:00"},
+                {index:7, title:"07:00"},
+                {index:8, title:"08:00"},
+                {index:9, title:"09:00"},
+                {index:10, title:"10:00"},
+                {index:11, title:"11:00"},
+                {index:12, title:"12:00"},
+                {index:13, title:"13:00"},
+                {index:14, title:"14:00"},
+                {index:15, title:"15:00"},
+                {index:16, title:"16:00"},
+                {index:17, title:"17:00"},
+                {index:18, title:"18:00"},
+                {index:19, title:"19:00"},
+                {index:20, title:"20:00"},
+                {index:21, title:"21:00"},
+                {index:22, title:"22:00"},
+                {index:23, title:"23:00"}]
+
 
   return (
       <div className="App">
@@ -30,10 +56,11 @@ const App = () => {
             <Ruler
                 value={value}
                 onChange={handleDragChange}
-                start={20}
-                end={99}
-                step={2}
+                start={0}
+                end={23}
+                step={10}
                 className="ruler"
+                data={data}
             />
           </div>
           <div className="form-ruler">

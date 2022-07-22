@@ -11,7 +11,9 @@ import './index.less';
 //   onDrag: PropTypes.func,
 //   className: PropTypes.string,
 // };
-const Ruler = ({value, start, end, step, onChange, className = '' }) =>  {
+const Ruler = ({value, start, end, step, onChange, className = '', data, background }) =>  {
+  const [bg, setBg] = useState(background)
+  const [tdata, setData] = useState(data)
   const [val, setValue] = useState(value);
   const [percentage, setPercent] = useState(0.0001);
   const [offsetWidth, setOffsetWidth] = useState(0);
@@ -143,7 +145,7 @@ const Ruler = ({value, start, end, step, onChange, className = '' }) =>  {
     let ruleDiv;
     for(let i = start; i < end + step; i += step) {
       if (i % 10 === 0 || i === end || (step === 1 && i % 5 === 0)) {
-        ruleDiv = <div key={i} className="rule-mark" style={i === end + 1 || i === end ? {} : {width: `${stepWidth}%`}}><div className="line-text">{i === end + 1 ? end : i }</div><div className="line"/></div>;
+        ruleDiv = <div key={i} className="rule-mark" style={i === end + 1 || i === end ? {} : {width: `${stepWidth}%`}}><div className="line-text">00{i === end + 1 ? end : i }</div><div className="line"/></div>;
       } else {
         ruleDiv = <span key={i} className="line" style={{width: `${stepWidth}%`}}/>;
       }
@@ -152,13 +154,40 @@ const Ruler = ({value, start, end, step, onChange, className = '' }) =>  {
     return ruleDom;
   }
 
+  const renderDataRuler = () => {
+    let ruleDom = [];
+    let ruleDiv;
+    if(data==undefined){
+    const stepWidth = 100 * step /  (end - start);
+
+      for(let i = start; i < end + step; i += step) {
+        if (i % 10 === 0 || i === end || (step === 1 && i % 5 === 0)) {
+          ruleDiv = <div key={i} className="rule-mark" style={i === end + 1 || i === end ? {} : {width: `${stepWidth}%`}}><div className="line-text">{i === end + 1 ? end : i }</div><div className="line"/></div>;
+        } else {
+          ruleDiv = <span key={i} className="line" style={{width: `${stepWidth}%`}}/>;
+        }
+        ruleDom.push(ruleDiv);
+      }
+    }else{
+      const stepWidth = 100  /  (end - start);
+      for(var index in tdata){
+          console.log(index)
+          ruleDiv = <div key={index} className="rule-mark" style={index === end + 1 || index === end ? {} : {width: `${stepWidth}%`}}><div className="line-text">{tdata[index].title}</div><div className="line"/></div>;
+          ruleDom.push(ruleDiv);
+      }
+    }
+
+    return ruleDom;
+  }
+
+
   return (
       <div className={`react-ruler-wrapper ${className}`}>
         <div className="ruler-container">
           <div className="ruler-wrapper" ref={rulerRef}>
             <div className="ruler-list">
               {
-                renderRuler()
+                  renderDataRuler()
               }
             </div>
             <div
