@@ -292,34 +292,34 @@ exports.typeOf = typeOf;
   })();
 }
 });
-var reactIs_development_1 = reactIs_development.AsyncMode;
-var reactIs_development_2 = reactIs_development.ConcurrentMode;
-var reactIs_development_3 = reactIs_development.ContextConsumer;
-var reactIs_development_4 = reactIs_development.ContextProvider;
-var reactIs_development_5 = reactIs_development.Element;
-var reactIs_development_6 = reactIs_development.ForwardRef;
-var reactIs_development_7 = reactIs_development.Fragment;
-var reactIs_development_8 = reactIs_development.Lazy;
-var reactIs_development_9 = reactIs_development.Memo;
-var reactIs_development_10 = reactIs_development.Portal;
-var reactIs_development_11 = reactIs_development.Profiler;
-var reactIs_development_12 = reactIs_development.StrictMode;
-var reactIs_development_13 = reactIs_development.Suspense;
-var reactIs_development_14 = reactIs_development.isAsyncMode;
-var reactIs_development_15 = reactIs_development.isConcurrentMode;
-var reactIs_development_16 = reactIs_development.isContextConsumer;
-var reactIs_development_17 = reactIs_development.isContextProvider;
-var reactIs_development_18 = reactIs_development.isElement;
-var reactIs_development_19 = reactIs_development.isForwardRef;
-var reactIs_development_20 = reactIs_development.isFragment;
-var reactIs_development_21 = reactIs_development.isLazy;
-var reactIs_development_22 = reactIs_development.isMemo;
-var reactIs_development_23 = reactIs_development.isPortal;
-var reactIs_development_24 = reactIs_development.isProfiler;
-var reactIs_development_25 = reactIs_development.isStrictMode;
-var reactIs_development_26 = reactIs_development.isSuspense;
-var reactIs_development_27 = reactIs_development.isValidElementType;
-var reactIs_development_28 = reactIs_development.typeOf;
+reactIs_development.AsyncMode;
+reactIs_development.ConcurrentMode;
+reactIs_development.ContextConsumer;
+reactIs_development.ContextProvider;
+reactIs_development.Element;
+reactIs_development.ForwardRef;
+reactIs_development.Fragment;
+reactIs_development.Lazy;
+reactIs_development.Memo;
+reactIs_development.Portal;
+reactIs_development.Profiler;
+reactIs_development.StrictMode;
+reactIs_development.Suspense;
+reactIs_development.isAsyncMode;
+reactIs_development.isConcurrentMode;
+reactIs_development.isContextConsumer;
+reactIs_development.isContextProvider;
+reactIs_development.isElement;
+reactIs_development.isForwardRef;
+reactIs_development.isFragment;
+reactIs_development.isLazy;
+reactIs_development.isMemo;
+reactIs_development.isPortal;
+reactIs_development.isProfiler;
+reactIs_development.isStrictMode;
+reactIs_development.isSuspense;
+reactIs_development.isValidElementType;
+reactIs_development.typeOf;
 
 var reactIs = createCommonjsModule(function (module) {
 
@@ -426,18 +426,18 @@ var objectAssign = shouldUseNative() ? Object.assign : function (target, source)
  * LICENSE file in the root directory of this source tree.
  */
 
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+var ReactPropTypesSecret$1 = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
-var ReactPropTypesSecret_1 = ReactPropTypesSecret;
+var ReactPropTypesSecret_1 = ReactPropTypesSecret$1;
 
-var printWarning = function() {};
+var printWarning$1 = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
+  var ReactPropTypesSecret = ReactPropTypesSecret_1;
   var loggedTypeFailures = {};
-  var has = Function.call.bind(Object.prototype.hasOwnProperty);
+  var has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
 
-  printWarning = function(text) {
+  printWarning$1 = function(text) {
     var message = 'Warning: ' + text;
     if (typeof console !== 'undefined') {
       console.error(message);
@@ -465,7 +465,7 @@ if (process.env.NODE_ENV !== 'production') {
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
   if (process.env.NODE_ENV !== 'production') {
     for (var typeSpecName in typeSpecs) {
-      if (has(typeSpecs, typeSpecName)) {
+      if (has$1(typeSpecs, typeSpecName)) {
         var error;
         // Prop type validation may throw. In case they do, we don't want to
         // fail the render phase where it didn't fail before. So we log it.
@@ -481,12 +481,12 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
             err.name = 'Invariant Violation';
             throw err;
           }
-          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret$1);
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
         } catch (ex) {
           error = ex;
         }
         if (error && !(error instanceof Error)) {
-          printWarning(
+          printWarning$1(
             (componentName || 'React class') + ': type specification of ' +
             location + ' `' + typeSpecName + '` is invalid; the type checker ' +
             'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
@@ -502,7 +502,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
           var stack = getStack ? getStack() : '';
 
-          printWarning(
+          printWarning$1(
             'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
           );
         }
@@ -524,11 +524,11 @@ checkPropTypes.resetWarningCache = function() {
 
 var checkPropTypes_1 = checkPropTypes;
 
-var has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
-var printWarning$1 = function() {};
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+var printWarning = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  printWarning$1 = function(text) {
+  printWarning = function(text) {
     var message = 'Warning: ' + text;
     if (typeof console !== 'undefined') {
       console.error(message);
@@ -704,7 +704,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
             // Avoid spamming the console because they are often not actionable except for lib authors
             manualPropTypeWarningCount < 3
           ) {
-            printWarning$1(
+            printWarning(
               'You are manually calling a React.PropTypes validation ' +
               'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
               'and will throw in the standalone `prop-types` package. ' +
@@ -817,12 +817,12 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
     if (!Array.isArray(expectedValues)) {
       if (process.env.NODE_ENV !== 'production') {
         if (arguments.length > 1) {
-          printWarning$1(
+          printWarning(
             'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
             'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
           );
         } else {
-          printWarning$1('Invalid argument supplied to oneOf, expected an array.');
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
         }
       }
       return emptyFunctionThatReturnsNull;
@@ -859,7 +859,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
         return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
       }
       for (var key in propValue) {
-        if (has$1(propValue, key)) {
+        if (has(propValue, key)) {
           var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
           if (error instanceof Error) {
             return error;
@@ -873,14 +873,14 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
 
   function createUnionTypeChecker(arrayOfTypeCheckers) {
     if (!Array.isArray(arrayOfTypeCheckers)) {
-      process.env.NODE_ENV !== 'production' ? printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      process.env.NODE_ENV !== 'production' ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
       return emptyFunctionThatReturnsNull;
     }
 
     for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
       var checker = arrayOfTypeCheckers[i];
       if (typeof checker !== 'function') {
-        printWarning$1(
+        printWarning(
           'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
           'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
         );
@@ -1153,7 +1153,7 @@ var factoryWithThrowingShims = function() {
   return ReactPropTypes;
 };
 
-var propTypes = createCommonjsModule(function (module) {
+createCommonjsModule(function (module) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1231,7 +1231,7 @@ function hostReportError(err) {
 }
 
 /** PURE_IMPORTS_START _config,_util_hostReportError PURE_IMPORTS_END */
-var empty = {
+var empty$1 = {
     closed: true,
     next: function (value) { },
     error: function (err) {
@@ -1421,11 +1421,11 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
         _this.isStopped = false;
         switch (arguments.length) {
             case 0:
-                _this.destination = empty;
+                _this.destination = empty$1;
                 break;
             case 1:
                 if (!destinationOrNext) {
-                    _this.destination = empty;
+                    _this.destination = empty$1;
                     break;
                 }
                 if (typeof destinationOrNext === 'object') {
@@ -1513,7 +1513,7 @@ var SafeSubscriber = /*@__PURE__*/ (function (_super) {
             next = observerOrNext.next;
             error = observerOrNext.error;
             complete = observerOrNext.complete;
-            if (observerOrNext !== empty) {
+            if (observerOrNext !== empty$1) {
                 context = Object.create(observerOrNext);
                 if (isFunction(context.unsubscribe)) {
                     _this.add(context.unsubscribe.bind(context));
@@ -1662,7 +1662,7 @@ function toSubscriber(nextOrObserver, error, complete) {
         }
     }
     if (!nextOrObserver && !error && !complete) {
-        return new Subscriber(empty);
+        return new Subscriber(empty$1);
     }
     return new Subscriber(nextOrObserver, error, complete);
 }
@@ -1790,7 +1790,7 @@ var Observable = /*@__PURE__*/ (function () {
 }());
 function getPromiseCtor(promiseCtor) {
     if (!promiseCtor) {
-        promiseCtor =  Promise;
+        promiseCtor = Promise;
     }
     if (!promiseCtor) {
         throw new Error('no Promise impl found');
@@ -1977,7 +1977,7 @@ var AsyncScheduler = /*@__PURE__*/ (function (_super) {
 
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 var EMPTY = /*@__PURE__*/ new Observable(function (subscriber) { return subscriber.complete(); });
-function empty$1(scheduler) {
+function empty(scheduler) {
     return scheduler ? emptyScheduled(scheduler) : EMPTY;
 }
 function emptyScheduled(scheduler) {
@@ -2779,7 +2779,7 @@ function defaultErrorFactory() {
 function take(count) {
     return function (source) {
         if (count === 0) {
-            return empty$1();
+            return empty();
         }
         else {
             return source.lift(new TakeOperator(count));
@@ -3001,7 +3001,7 @@ function getDragObservables(element) {
     return _ends.pipe(first(), takeUntil(_moves.pipe(elementAt(3))), takeUntil(timer(HOLDING_PERIOD)), tap(function () {
       return console.log('click');
     }), catchError(function () {
-      return empty$1();
+      return empty();
     }));
   })); // Holds: Take those starts where no end event and no more than 3 move event occurs during the holding period
 
@@ -3015,7 +3015,7 @@ function getDragObservables(element) {
     }), tap(function () {
       return console.log('hold');
     }), catchError(function () {
-      return empty$1();
+      return empty();
     }));
   })); // Move starts with direction: Pair the move start events with the 3rd subsequent move event,
   // but only if it happens during the holdign period and no end event happens in between
@@ -3023,7 +3023,7 @@ function getDragObservables(element) {
 
   var moveStartsWithDirection = _starts.pipe(concatMap(function (dragStartEvent) {
     return _moves.pipe(takeUntil(_ends), takeUntil(timer(HOLDING_PERIOD)), elementAt(3), catchError(function () {
-      return empty$1();
+      return empty();
     }), map(function (dragEvent) {
       var intialDeltaX = dragEvent.x - dragStartEvent.x;
       var initialDeltaY = dragEvent.y - dragStartEvent.y;
@@ -3133,22 +3133,34 @@ var Ruler = function Ruler(_ref) {
       step = _ref.step,
       onChange = _ref.onChange,
       _ref$className = _ref.className,
-      className = _ref$className === void 0 ? '' : _ref$className;
+      className = _ref$className === void 0 ? '' : _ref$className,
+      data = _ref.data,
+      background = _ref.background;
 
-  var _useState = useState(value),
-      _useState2 = slicedToArray(_useState, 2),
-      val = _useState2[0],
-      setValue = _useState2[1];
+  var _useState = useState(background),
+      _useState2 = slicedToArray(_useState, 2);
+      _useState2[0];
+      _useState2[1];
 
-  var _useState3 = useState(0.0001),
+  var _useState3 = useState(data),
       _useState4 = slicedToArray(_useState3, 2),
-      percentage = _useState4[0],
-      setPercent = _useState4[1];
+      tdata = _useState4[0];
+      _useState4[1];
 
-  var _useState5 = useState(0),
+  var _useState5 = useState(value),
       _useState6 = slicedToArray(_useState5, 2),
-      offsetWidth = _useState6[0],
-      setOffsetWidth = _useState6[1];
+      val = _useState6[0],
+      setValue = _useState6[1];
+
+  var _useState7 = useState(0.0001),
+      _useState8 = slicedToArray(_useState7, 2),
+      percentage = _useState8[0],
+      setPercent = _useState8[1];
+
+  var _useState9 = useState(0),
+      _useState10 = slicedToArray(_useState9, 2),
+      offsetWidth = _useState10[0],
+      setOffsetWidth = _useState10[1];
 
   var startPercentRef = useRef(0);
   var containerWidthRef = useRef(0);
@@ -3262,35 +3274,56 @@ var Ruler = function Ruler(_ref) {
     console.log(x);
   };
 
-  var renderRuler = function renderRuler() {
-    var stepWidth = 100 * step / (end - start);
+  var renderDataRuler = function renderDataRuler() {
     var ruleDom = [];
     var ruleDiv;
 
-    for (var i = start; i < end + step; i += step) {
-      if (i % 10 === 0 || i === end || step === 1 && i % 5 === 0) {
+    if (data == undefined) {
+      var stepWidth = 100 * step / (end - start);
+
+      for (var i = start; i < end + step; i += step) {
+        if (i % 10 === 0 || i === end || step === 1 && i % 5 === 0) {
+          ruleDiv = /*#__PURE__*/React.createElement("div", {
+            key: i,
+            className: "rule-mark",
+            style: i === end + 1 || i === end ? {} : {
+              width: "".concat(stepWidth, "%")
+            }
+          }, /*#__PURE__*/React.createElement("div", {
+            className: "line-text"
+          }, i === end + 1 ? end : i), /*#__PURE__*/React.createElement("div", {
+            className: "line"
+          }));
+        } else {
+          ruleDiv = /*#__PURE__*/React.createElement("span", {
+            key: i,
+            className: "line",
+            style: {
+              width: "".concat(stepWidth, "%")
+            }
+          });
+        }
+
+        ruleDom.push(ruleDiv);
+      }
+    } else {
+      var _stepWidth = 100 / (end - start);
+
+      for (var index in tdata) {
+        console.log(index);
         ruleDiv = /*#__PURE__*/React.createElement("div", {
-          key: i,
+          key: index,
           className: "rule-mark",
-          style: i === end + 1 || i === end ? {} : {
-            width: "".concat(stepWidth, "%")
+          style: index === end + 1 || index === end ? {} : {
+            width: "".concat(_stepWidth, "%")
           }
         }, /*#__PURE__*/React.createElement("div", {
           className: "line-text"
-        }, i === end + 1 ? end : i), /*#__PURE__*/React.createElement("div", {
+        }, tdata[index].title), /*#__PURE__*/React.createElement("div", {
           className: "line"
         }));
-      } else {
-        ruleDiv = /*#__PURE__*/React.createElement("span", {
-          key: i,
-          className: "line",
-          style: {
-            width: "".concat(stepWidth, "%")
-          }
-        });
+        ruleDom.push(ruleDiv);
       }
-
-      ruleDom.push(ruleDiv);
     }
 
     return ruleDom;
@@ -3305,7 +3338,7 @@ var Ruler = function Ruler(_ref) {
     ref: rulerRef
   }, /*#__PURE__*/React.createElement("div", {
     className: "ruler-list"
-  }, renderRuler()), /*#__PURE__*/React.createElement("div", {
+  }, renderDataRuler()), /*#__PURE__*/React.createElement("div", {
     className: "ruler-drag",
     style: {
       transform: "scaleX(".concat(percentage, ")")
@@ -3323,4 +3356,4 @@ var Ruler = function Ruler(_ref) {
   }))))));
 };
 
-export default Ruler;
+export { Ruler as default };

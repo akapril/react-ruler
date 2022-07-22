@@ -72,6 +72,7 @@ const App = () => {
                       end={19}
                       step={1}
                   />
+                  <div style={{borod:1}}></div>
               </FormItem>
             </Form>
           </div>
